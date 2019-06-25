@@ -1,16 +1,16 @@
 class Api::ContactsController < ApplicationController
   def index
-    if current_user
-      @contacts = current_user.Contact.all
-    # @contacts = Contact.all
+    # if current_user
+    #   @contacts = current_user.Contact.all
+    @contacts = Contact.all
       render 'index.json.jbuilder'
-    else
-      render json: [message: "You are not logged in you can't view your contacts!"]
-    end
+    # else
+    #   render json: [message: "You are not logged in you can't view your contacts!"]
+    # end
   end
 
   def create
-    if current_user
+    # if current_user
       @contact = Contact.new(
                               name: params[:name],
                               picture: params[:picture],
@@ -20,9 +20,9 @@ class Api::ContactsController < ApplicationController
                               )
       @contact.save
       render 'show.json.jbuilder'
-    else
-      render json: {message: "You are not logged in you can't add contacts"}
-    end
+    # else
+    #   render json: {message: "You are not logged in you can't add contacts"}
+    # end
 
   end
 

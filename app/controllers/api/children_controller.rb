@@ -1,13 +1,13 @@
 class Api::ChildrenController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
   def index
-    if current_user
-      @children = current_user.children
-      # @children = Child.all
+    # if current_user
+    #   @children = current_user.children
+      @children = Child.all
       render 'index.json.jbuilder'
-    else
-      render json: {message: "You are not logged in you can't view your kids!"}, status: :unauthorized
-    end
+    # else
+    #   render json: {message: "You are not logged in you can't view your kids!"}, status: :unauthorized
+    # end
   end
 
   def create

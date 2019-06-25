@@ -1,4 +1,15 @@
 class Api::GuardiansController < ApplicationController
+
+  def index
+    # if current_user
+      @guardians = Guardian.all
+      render 'index.json.jbuilder'
+    # else
+    #   render json: []
+    # end
+  end
+
+
    def create
     @guardian = Guardian.new(
                     name: params[:name],
