@@ -1,0 +1,1 @@
+json.array! @children_tasks, partial: 'children_task', as: :children_task
