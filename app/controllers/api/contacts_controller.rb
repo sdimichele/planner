@@ -10,13 +10,20 @@ class Api::ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new (
-                            name: params[:name],
-                            picture: params[:picture],
-                            email: params[:email],
-                            phone_number: params[:phone_number],
-                            guardian_id: current_user.id
-                            )
+    if current_user
+      @contact = Contact.new(
+                              name: params[:name],
+                              picture: params[:picture],
+                              email: params[:email],
+                              phone_number: params[:phone_number],
+                              guardian_id: current_user.id
+                              )
+      @contact.save
+      render 'show.json.jbuilder'
+    else
+      render json: {message: "You are not logged in you can't add contacts"}
+    end
+
   end
 
   def show
