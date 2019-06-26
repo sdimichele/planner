@@ -2,7 +2,8 @@ class Api::ChildrenTasksController < ApplicationController
   before_action :authenticate_user
   def index
     if current_user
-      @children_tasks = current_user.tasks
+      @children_tasks = current_user.children_tasks
+      # @children_task = Child_task.all
       render 'index.json.jbuilder'
     else
       render json: {message: "You can not view all children tasks"},

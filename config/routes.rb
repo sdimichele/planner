@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     patch '/contacts/:id' => 'contacts#update'
     delete '/contacts/:id' => 'contacts#destroy'
     
-    get "/guardians" => "guardians#index"
-    post '/guardians' => 'guardians#create'
-    get '/guardians/:id' => 'guardians#show'
-    patch '/guardians/:id' => 'guardians#update'
-    delete '/guardians/:id' => 'guardians#destroy'
+    get "/users" => "guardians#index"
+    post '/users' => 'guardians#create'
+    get '/users/:id' => 'guardians#show'
+    patch '/users/:id' => 'guardians#update'
+    delete '/users/:id' => 'guardians#destroy'
     post "/sessions" => "sessions#create"
 
     get "/relationships" => "relationships#index"

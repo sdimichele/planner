@@ -2,8 +2,9 @@ class Api::ChildrenController < ApplicationController
   before_action :authenticate_user
   def index
     if current_user
-      @children = current_user.children
-      # @children = Child.all
+      # @children = current_user.children
+      @children = Child.where(id: Relationship.where(guardian_id: current_user.id))
+      # @children = Children.where(id: )
       render 'index.json.jbuilder'
     else
       render json: {message: "You are not logged in you can't view your kids!"}, status: :unauthorized
@@ -11,16 +12,21 @@ class Api::ChildrenController < ApplicationController
   end
 
   def create
+    if current_user
     @child = Child.new(
                         name: params[:name],
                         picture_url: params[:picture_url]
                       )
-    if @child.save
-      render 'show.json.jbuilder'
-    else
-      render json: {errors: @child.errors.full_messages}
-    end
+      if @child.save
+        render 'show.json.jbuilder'
+      else
+        render json: {errors: @child.errors.full_messages}
+      end
+    else 
+      render json: { message: "Not logged in" }
+    end 
   end
+
   def show
     @child = Child.find(params[:id])
     render 'show.json.jbuilder'

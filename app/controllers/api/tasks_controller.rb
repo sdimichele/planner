@@ -2,7 +2,8 @@ class Api::TasksController < ApplicationController
   before_action :authenticate_user
   def index
     if current_user
-      @task = current_user.tasks
+      # @task = current_user.tasks
+      @tasks = Task.where(id: [:child_id])
       render 'index.json.jbuilder'
     else
       render json: {message: "You are not logged in and can't view tasks!"}

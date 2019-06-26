@@ -1,0 +1,1 @@
+json.array! @guardians, partial: 'guardian', as: :guardian
