@@ -1,12 +1,12 @@
 class Api::RelationshipsController < ApplicationController
   def index
-    # if current_user
+    if current_user
       # @relationships = current_user.relationships
       @relationships = Relationship.all
       render 'index.json.jbuilder'
-    # else
-    #   render json: {message: "you are not logged in you can't access your relationships"}
-    # end
+    else
+      render json: {message: "you are not logged in you can't access your relationships"}
+    end
   end
 
   def create
