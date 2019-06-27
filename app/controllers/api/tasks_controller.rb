@@ -3,7 +3,7 @@ class Api::TasksController < ApplicationController
   def index
     if current_user
       # @task = current_user.tasks
-      @tasks = Task.where()
+      @tasks = Task.all
       render 'index.json.jbuilder'
     else
       render json: {message: "You are not logged in and can't view tasks!"}
