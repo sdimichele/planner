@@ -8,4 +8,8 @@ class Guardian < ApplicationRecord
   has_many :contacts
   has_many :tasks
   has_many :children, through: :relationships
+
+  validates :name, presence: true
+  validates :email, presence: true 
+  validates :password_digest, presence: true
 end
