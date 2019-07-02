@@ -11,12 +11,13 @@ class Api::TasksController < ApplicationController
   end
 
   def create
+
     @task = Task.new(
                       guardian_id: current_user.id,
                       name: params[:name],
                       description: params[:description],
-                      time: params[:time],
-                      status: params[:status]
+                      time: Time.strptime(params[:time], "%Y-%m-%dT%H:%M"),
+                      status: 0
                     )
     if  @task.save
       render 'show.json.jbuilder'

@@ -9,7 +9,11 @@ class Task < ApplicationRecord
   enum status: {pending: 0, completed: 1, waiting: 2 }
 
 
-  def format_time(time)
-    time.strftime("%m-%e-%y %H:%M")
-  end
+  # def format_time
+  #   time.strftime("%m-%e-%y %H:%M")
+  # end
+
+  # def format_untime
+  #   time.strptime("time", "%Y-%m-%dT%H:%MZ")
+  # end
 end
