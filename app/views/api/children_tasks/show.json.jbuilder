@@ -1,1 +1,1 @@
-json.partial! @child_task, partial: 'child_task', as: :child_task
+json.partial! @children_task, partial: 'children_task', as: :children_task

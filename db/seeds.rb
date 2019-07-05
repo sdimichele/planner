@@ -21,7 +21,11 @@
 
 # Children_task.create(task_id: 1, child_id: 1)
 
-  children_task = Children_task.create(task_id: 1, child_id: 1)
+  # children_task = Children_task.create(task_id: 1, child_id: 1)
+
+  # Task.all.each do |thing|
+  #   thing.update(status: 0)
+  # end
 
 
 

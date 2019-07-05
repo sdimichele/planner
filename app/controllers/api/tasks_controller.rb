@@ -12,6 +12,9 @@ class Api::TasksController < ApplicationController
 
   def create
 
+    p "***" * 50
+    p "Hello"
+    p "****" * 50
     @task = Task.new(
                       guardian_id: current_user.id,
                       name: params[:name],
