@@ -3,7 +3,7 @@ class Api::TasksController < ApplicationController
   def index
     if current_user
       # @task = current_user.tasks
-      @tasks = Task.all
+      @tasks = Task.all.order(time: :asc)
       render 'index.json.jbuilder'
     else
       render json: {message: "You are not logged in and can't view tasks!"}
@@ -12,9 +12,7 @@ class Api::TasksController < ApplicationController
 
   def create
 
-    p "***" * 50
-    p "Hello"
-    p "****" * 50
+
     @task = Task.new(
                       guardian_id: current_user.id,
                       name: params[:name],

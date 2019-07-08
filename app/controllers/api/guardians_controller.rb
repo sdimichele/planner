@@ -18,12 +18,12 @@ class Api::GuardiansController < ApplicationController
                     password_confirmation: params[:password_confirmation]
                     )
 
-    #if 
+    if 
       @guardian.save
-    #   render json: {message: 'User created successfully'}, status: :created
-    # else
-    #   render json: {errors: @guardian.errors.full_messages}, status: :bad_request
-    # end
+      render json: {message: 'User created successfully'}, status: :created
+    else
+      render json: {errors: @guardian.errors.full_messages}, status: :bad_request
+    end
    end
 
 end
